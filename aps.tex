@@ -1,0 +1,136 @@
+% aps.tex
+%
+% This file is root file for an example annual progress seminar report
+% Created by Amey Karkare (18 August 2007)
+%
+% It is provided without warranty on an AS IS basis.
+
+
+%=====================================================================
+% Document Style
+%=====================================================================
+% APS format: There is no prescribed format by IIT Bombay 
+
+% \documentclass[twoside]{iitbaps}  %to print on both sides of paper
+\documentclass[oneside]{iitbaps}  %to print on one side of paper
+
+% To include optional packages, us5e the \usepackage command.
+% For e.g.:
+\usepackage{epsfig}
+\usepackage[breaklinks]{hyperref}
+\usepackage[all]{hypcap}
+\usepackage{amsmath,amssymb,amsbsy,amsfonts}
+\usepackage[numbers,sort]{natbib}
+\bibliographystyle{abbrvnat}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{inputenc}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage{longtable}
+%\usepackage{appendix}
+% \usepackage{chemformula}
+% \usepackage{chemist}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\usepackage{wrapfig}
+\usepackage{textcomp}            %% for making \mu non italic
+\usepackage{subcaption}          %% for subfigures
+\usepackage{bm}
+\usepackage{graphicx}
+%\usepackage{caption}
+\usepackage{setspace}
+\usepackage{mathtools}
+\usepackage{color}
+\usepackage{multirow}
+\usepackage{soul} % for striking text
+\usepackage{bm}
+  %\renewcommand*\thesubsubsection{%
+  %\arabic{chapter}.\arabic{section}.\arabic{subsection}.\arabic{subsubsection}%
+
+%   \usepackage{textgreek}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*{\defeq}{\stackrel{\text{def}}{=}} % for defined equal to
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\thickhat}[1]{\mathbf{\hat{\text{$#1$}}}} % hat bar and tilde thick
+\newcommand{\thickbar}[1]{\mathbf{\bar{\text{$#1$}}}}
+\newcommand{\thicktilde}[1]{\mathbf{\tilde{\text{$#1$}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{myaxiom}{Axiom} % for axiom
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}} % for independence symbol
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}               % for independence symbol
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=======================================================================
+% End of Preamble, start of document
+%
+
+\begin{document}
+
+% Choose your bibliography style
+% plain is the basic style, others include ieeetr, siam, asm, etc
+
+% \bibliographystyle{wileyj}
+
+
+% \include{defs}                 % Common definitions used throughout the thesis
+\include{aps_prelude}           % Title page, abstract, table of contents, etc
+\tableofcontents
+ \include{chapter1}              % Chapter 1: 
+ 
+% \include{chapter2}		% Chapter 2:
+% \include{fig_chp2}
+% \include{tab_chp2}
+% \include{chapter3}		% Chapter 3: 
+% \include{fig_chp3}
+% \include{table_chp3}
+% \include{chapter4}		% Chapter 4: 
+% \include{table_chp4}
+% \include{chapter5}		% Chapter 5: 
+%                 
+% \include{fig_chp5} 
+%  \include{table_chp5}
+%\include{chapter6}
+%\include{figure_chp6}
+%\include{table_chp6}
+%\include{chp_conclusions}      % Chapter: 
+%\include{fig_conclusions}
+
+%--------------------------------------------------------------------%
+% APPENDIX
+%  Appendices, if any, must precede the cited literatures.
+%  Appendices shall be numbered in Roman Capitals (e.g. Appendix IV)
+%\appendix                      
+%\appendixpage
+%\addappheadtotoc
+%\begin{appendices}
+%\input{appendix_1}        % Appendices if any..  
+%\end{appendices}
+%--------------------------------------------------------------------%
+
+%   conclusions chapter.
+
+\bibliography{references}              % Make the bibliography
+
+
+% \clearpage
+% \begingroup
+% \renewcommand\bibname{List of publication}
+% \input{publication.bbl}
+% \endgroup
+
+% ACKNOWLEDGMENTS
+%   For APS, acknowledgements can be the first item after title page
+%      OR
+%   the very last item.
+%
+% \begin{acknowledgments}
+% \input{acknowledgment}
+% \end{acknowledgments}
+
+
+\end{document}
