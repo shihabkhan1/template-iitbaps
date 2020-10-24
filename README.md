@@ -1,2 +1,2 @@
 # iitbaps-template
-This repository contains the LaTeX template for APS as per IITB norms.
+This repository contains the LaTeX template for APS as for IITB and IITBM students.
