@@ -1,0 +1,10 @@
+
+\begin{thenomenclature} 
+\nomgroup{Symbols}
+  \item [{$C$}]\begingroup Monetary cost\nomeqref {0}\nompageref{4}
+  \item [{$\mathcal{A}$}]\begingroup Set of all possible repair/decision actions\nomeqref {0}\nompageref{4}
+  \item [{$a$}]\begingroup Repair/decision action\nomeqref {0}\nompageref{4}
+  \item [{$a_{opt}$}]\begingroup Optimal repair/decision action\nomeqref {0}\nompageref{4}
+  \item [{CoV}]\begingroup Coefficient of variation\nomeqref {0}\nompageref{4}
+
+\end{thenomenclature}

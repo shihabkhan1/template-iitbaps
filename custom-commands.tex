@@ -1,0 +1,133 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*{\defeq}{\stackrel{\text{def}}{=}} % for defined equal to
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\thickhat}[1]{\mathbf{\hat{\text{$#1$}}}} % hat bar and tilde thick
+\newcommand{\thickbar}[1]{\mathbf{\bar{\text{$#1$}}}}
+\newcommand{\thicktilde}[1]{\mathbf{\tilde{\text{$#1$}}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheorem{myaxiom}{Axiom} % for axiom
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}} % for independence symbol
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}               % for independence symbol
+\usepackage{float}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% For nomenclature %%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+\usepackage[intoc]{nomencl}
+\makenomenclature
+
+%% This code creates the groups
+% -----------------------------------------
+%\usepackage{etoolbox}
+%\renewcommand\nomgroup[1]{%
+%	\item[\bfseries
+%	\ifstrequal{#1}{G}{Greek Symbols}{%
+%		\ifstrequal{#1}{S}{Sets}{%
+%			\ifstrequal{#1}{O}{Other Symbols}{}}}%
+%	]}
+
+
+\makeatletter
+\newcommand{\closenomencl}{%
+	\closeout\@nomenclaturefile%
+}
+\makeatother
+
+
+
+\newcommand{\writenomencl}[1]{%
+	\closenomencl%
+	\IfFileExists{#1.nlo}{%
+		\write18{%
+			makeindex -s nomencl.ist -o #1.nls -t #1.nlg #1.nlo%
+		}% 
+	}{\typeout{Nothing there}}%
+}
+
+
+\AtEndDocument{\writenomencl{\jobname}}
+
+\makeatletter
+\DeclareCiteCommand{\fullcite}
+{\defcounter{maxnames}{\blx@maxbibnames}%
+	\usebibmacro{prenote}}
+{\usedriver
+	{\DeclareNameAlias{sortname}{default}}
+	{\thefield{entrytype}}}
+{\multicitedelim}
+{\usebibmacro{postnote}}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%% Custom commands %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\usepackage{upgreek}
+\newcommand*{\ue}{\upmu \upvarepsilon}  % microstrain 
+\newcommand{\bb}[1]{{\color{blue}#1}}
+\newcommand{\red}[1]{{\color{red}#1}}
+\newcommand{\g}[2][]{g_{#1}\left(#2\right)}
+\newcommand{\D}[1]{$\mathcal{D}_{#1}$}
+\newcommand{\T}[1][]{\mathcal{T}_{#1}}
+\newcommand{\A}[1][]{\mathcal{A}_{#1}}
+\newcommand{\amo}{\alpha_{Mo}}
+\newcommand{\ame}{\alpha_{Me}}
+\newcommand{\bmo}{\beta_{Mo}}
+\newcommand{\bme}{\beta_{Me}}
+\newcommand{\emo}{\epsilon_{Mo}}
+\newcommand{\eme}{\epsilon_{Me}}
+\newcommand{\at}[1][]{a^{#1}}
+\newcommand{\ar}[1][]{a_{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%% VoI terms %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\evi}{EVI}
+\newcommand{\nevi}{NEVI}
+\newcommand{\expct}[1][]{\mathrm{E}_{#1}}
+%\newcommand{\cost}[1]{C_{}}
+\newcommand{\cprior}{C_{\text{prior}}}
+\newcommand{\cprepost}{C_{\text{prepost}}}
+%%%%%%%%%%%%%%%%%%%%%%%% Brackets %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bs}[1]{\left[#1\right]}
+\newcommand{\bc}[1]{\left\{#1\right\}}
+\newcommand{\bp}[1]{\left(#1\right)}
+%%%%%%%%%%%%%%%%%%%%%%%% Bayesian updating %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bt}{\bm{\theta}}
+\newcommand{\btt}[1][]{\bm{\theta}^{#1}}
+\newcommand{\ttt}[2]{\theta_{#1}^{#2}}
+\newcommand{\bX}{\bm{X}}
+\newcommand{\fX}{f_{\bm{X}}}
+\newcommand{\bXm}[1][]{\bm{X_{m}^{#1}}}
+\newcommand{\bXmo}[2]{\bm{X_{#1}^{#2}}}
+%\newcommand{\bXmt}[2]{\bm{X_{#2}^{#1}}}
+\newcommand{\bXmrm}[1]{\bm{\mathrm{X}_{m}^{#1}}}
+\newcommand{\fXm}{f_{\bXm}}
+\newcommand{\fXu}{f_{\bm{X}|\bXm}}
+\newcommand{\fXurm}[1]{f_{\bm{X}|\bXmrm{#1}}}
+\newcommand{\like}{\mathcal{L}}
+\newcommand{\likef}[1]{\like\bp{#1}}
+\newcommand{\sig}[1]{\sigma_{#1}}
+\newcommand{\sigb}[2]{\sigma_{#1}^{#2}}
+\newcommand{\rvnorm}[2]{\mathcal{N}\bp{#1,~#2}}
+%\newcommand{\bXm}{\bm{X_{m}}}
+%%%%%%%%%%%%%%%%%%%%%%%% Algorithm %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\save}{\textbf{save} }
+\newcommand{\start}{\textbf{start} }
+\newcommand{\stopp}{\textbf{stop} }
+\newcommand{\set}{\textbf{set} }
+\newcommand{\est}{\textbf{estimate} }
+\newcommand{\inst}{\textbf{instantiate} }
+\newcommand{\return}{\textbf{return} }
+\newcommand{\gen}{\textbf{generate} }
+\newcommand{\samp}{\textbf{sample} }
+\newcommand{\load}{\textbf{load} }
+\newcommand{\chk}{\textbf{check} }
+\newcommand{\plot}{\textbf{plot} }
+\newcommand{\filerfbeta}{\texttt{RF\_beta\_estimation} }
+\newcommand{\filerand}{\texttt{rand\_generator\_SHMA} }
+\newcommand{\fileupdt}{\texttt{VLL\_updating} }
+\newcommand{\filepolicy}{\texttt{policy} }
+\newcommand{\filecosts}{\texttt{costs} }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
